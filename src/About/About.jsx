@@ -107,7 +107,7 @@ export default function About() {
                 </a>
 
                 <a
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/in/nishant-badgujar-8a3209254/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"

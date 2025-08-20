@@ -51,7 +51,7 @@ export default function Home() {
     <main className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
       {/* HERO */}
       <section className="mt-12">
-        <div className="relative bg-gradient-to-b from-slate-900/90 to-slate-900/80 rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative bg-gradient-to-b from-slate-900/90 to-slate-900/80 rounded-2xl my-16 overflow-hidden shadow-2xl">
           {/* Decorative subtle pattern */}
           <div className="absolute inset-0 opacity-30 pointer-events-none">
             <svg
