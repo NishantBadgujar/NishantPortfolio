@@ -1,22 +1,81 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const SKILLS = [
-  { name: "Java", lvl: 85 },
-  { name: "Spring Boot", lvl: 78 },
-  { name: "REST APIs", lvl: 80 },
-  { name: "SQL", lvl: 80 },
-  { name: "MySQL", lvl: 90 },
-  { name: "Hibernate", lvl: 80 },
-  { name: "HTML/CSS", lvl: 90 },
-  { name: "JavaScript", lvl: 82 },
-  { name: "Reactjs", lvl: 80 },
-  { name: "Python", lvl: 70 },
-  { name: "CodeIgniter (PHP)", lvl: 65 },
-  { name: "Git/GitHub", lvl: 85 },
-  { name: "Bootstrap", lvl: 75 },
-  { name: "Tailwind CSS", lvl: 70 },
-  { name: "DSA", lvl: 75 },
+  {
+    name: "Java",
+    lvl: 85,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+  },
+  {
+    name: "Spring Boot",
+    lvl: 78,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+  },
+  {
+    name: "REST APIs",
+    lvl: 80,
+    icon: "https://img.icons8.com/?size=100&id=55497&format=png&color=000000",
+  },
+  {
+    name: "SQL",
+    lvl: 80,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+  },
+  {
+    name: "MySQL",
+    lvl: 90,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
+  },
+  {
+    name: "Hibernate",
+    lvl: 80,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hibernate/hibernate-original.svg",
+  },
+  {
+    name: "HTML/CSS",
+    lvl: 90,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  },
+  {
+    name: "JavaScript",
+    lvl: 82,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  },
+  {
+    name: "Reactjs",
+    lvl: 80,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "Python",
+    lvl: 70,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+  },
+  {
+    name: "CodeIgniter (PHP)",
+    lvl: 65,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+  },
+  {
+    name: "Git/GitHub",
+    lvl: 85,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  {
+    name: "Bootstrap",
+    lvl: 75,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  },
+  {
+    name: "Tailwind CSS",
+    lvl: 70,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+  },
+  {
+    name: "DSA",
+    lvl: 75,
+    icon: "https://img.icons8.com/?size=100&id=duQHzHra9BbD&format=png&color=000000",
+  },
 ];
 
 const PROJECTS = [
@@ -93,7 +152,7 @@ export default function Home() {
 
               <Link
                 to="/about"
-                className="mt-6 inline-flex items-center gap-3 rounded-md bg-amber-500 px-5 py-3 font-medium text-slate-900 shadow hover:shadow-lg focus:outline-none"
+                className="mt-6 inline-flex items-center gap-3 rounded-md bg-amber-500 px-5 py-3 font-medium text-slate-900 shadow hover:shadow-lg focus:outline-none icon-cursor-box"
               >
                 About
               </Link>
@@ -156,14 +215,21 @@ export default function Home() {
           {SKILLS.map((s) => (
             <div
               key={s.name}
-              className="flex items-center gap-4 p-4 rounded-lg bg-slate-800/50 border border-slate-800/30 hover:bg-slate-800/60 transition"
+              className="flex items-center cursor-pointer gap-4 p-4 rounded-lg bg-slate-800/50 border border-slate-800/30 hover:bg-slate-800/60 transition icon-cursor-box"
             >
-              <div className="w-12 h-12 rounded-md bg-gradient-to-tr from-amber-500/20 to-rose-500/10 flex items-center justify-center text-amber-300 font-semibold text-sm">
-                {s.name
-                  .split(" ")
-                  .map((w) => w[0])
-                  .slice(0, 2)
-                  .join("")}
+              {/* <div className="w-12 h-12 rounded-md bg-gradient-to-tr from-amber-500/20 to-rose-500/10 flex items-center justify-center text-amber-300 font-semibold text-sm"> */}
+              {/* Glass effect on icon */}
+              {/* <div className="w-16 h-16 rounded-xl p-2 backdrop-blur-md shadow-lg border border-slate-800/30 transition duration-300 ease-in-out hover:scale-110 hover:shadow-2xl hover:bg-slate-800/60 hover:-translate-y-2"> */}
+              <div className="rounded-xl p-2 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:-rotate-3 bg-gradient-to-br from-gray-800 to-gray-900 icon-cursor-box">
+                {s.icon ? (
+                  <img src={s.icon} alt={s.name} className="w-10 h-10 " />
+                ) : (
+                  s.name
+                    .split(" ")
+                    .map((w) => w[0])
+                    .slice(0, 2)
+                    .join("")
+                )}
               </div>
 
               <div className="flex-1">
@@ -171,7 +237,9 @@ export default function Home() {
                   <div className="text-sm font-medium text-slate-100">
                     {s.name}
                   </div>
-                  <div className="text-xs text-slate-300">{s.lvl}%</div>
+                  <div className="text-xs font-semibold text-slate-300">
+                    {s.lvl}%
+                  </div>
                 </div>
                 <div className="mt-2 bg-slate-900/40 rounded-full h-2 overflow-hidden">
                   <div
@@ -200,7 +268,7 @@ export default function Home() {
           {PROJECTS.map((p) => (
             <article
               key={p.title}
-              className="group rounded-2xl overflow-hidden bg-slate-800/40 border border-slate-800/30 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1"
+              className="group rounded-2xl overflow-hidden bg-slate-800/40 border border-slate-800/30 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
             >
               {/* Image thumbnail */}
               <div className="relative h-44 w-full overflow-hidden">
