@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-  const navItems = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/#projects", label: "Projects" },
-    { to: "/#skills", label: "Skills" },
-    { to: "/contact", label: "Contact" },
+    const navItems = [
+    { to: "/", label: "Home", type: "nav" },
+    { to: "/about", label: "About", type: "nav" },
+    { to: "/#projects", label: "Projects", type: "hash" }, // ✅ scroll
+    { to: "/#skills", label: "Skills", type: "hash" },     // ✅ scroll
+    { to: "/contact", label: "Contact", type: "nav" },
   ];
 
   return (
@@ -113,17 +115,30 @@ export default function Header() {
         <div className={`${open ? "block" : "hidden"} lg:hidden`} id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md text-base font-medium ${isActive ? "text-amber-400" : "text-slate-200 hover:text-amber-300"}`
-                }
-              >
-                {item.label}
-              </NavLink>
+              <li key={item.to}>
+                {item.type === "hash" ? (
+                  <HashLink
+                    smooth
+                    to={item.to}
+                    className="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:text-amber-300"
+                  >
+                    {item.label}
+                  </HashLink>
+                ) : (
+                  <NavLink
+                    to={item.to}
+                    className={({ isActive }) =>
+                      `px-3 py-2 rounded-md text-sm font-medium ${
+                        isActive ? "text-amber-400" : "text-slate-200 hover:text-amber-300"
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                )}
+              </li>
             ))}
+
 
             <div className="mt-2 border-t border-white/5 pt-3 flex items-center gap-3 px-3">
               <Link

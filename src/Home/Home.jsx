@@ -24,7 +24,7 @@ const PROJECTS = [
     title: "Bombay Tribe (E-commerce)",
     desc: "Full-stack e-commerce platform with user, affiliator and admin modules.",
     tech: ["CodeIgniter", "JS", "MySQL"],
-    demo: "#",
+    demo: "https://bombaytribe.com",
     repo: "#",
     img: "project1.png", // 🔹 Add your image path
   },
@@ -40,8 +40,8 @@ const PROJECTS = [
     title: "Inventory Management",
     desc: "Product inventory system with image uploads, modals and validations.",
     tech: ["PHP", "JS", "Bootstrap"],
-    demo: "#",
-    repo: "#",
+    demo: "https://github.com/NishantBadgujar/cisetup",
+    repo: "https://github.com/NishantBadgujar/cisetup",
     img: "project3.png", // 🔹 Add your image path
   },
 ];
@@ -102,11 +102,11 @@ export default function Home() {
                 <span className="inline-block text-sm text-slate-400">
                   Available for:
                 </span>
-                <span className="inline-block rounded-full bg-slate-800/60 px-3 py-1 text-sm text-amber-300">
-                  Freelance
-                </span>
                 <span className="inline-block rounded-full bg-slate-800/60 px-3 py-1 text-sm text-emerald-300">
                   Full-time
+                </span>
+                <span className="inline-block rounded-full bg-slate-800/60 px-3 py-1 text-sm text-amber-300">
+                  Freelance
                 </span>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* SKILLS */}
-      <section className="mt-16">
+      <section id="skills" className="mt-16">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-100">
             Skills
@@ -186,7 +186,7 @@ export default function Home() {
       </section>
 
       {/* PROJECTS */}
-      <section className="mt-16">
+      <section id="projects" className="mt-16">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-100">
             Selected Projects
