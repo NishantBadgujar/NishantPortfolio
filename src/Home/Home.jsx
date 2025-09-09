@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SKILLS = [
   {
@@ -53,7 +54,7 @@ const SKILLS = [
   },
   {
     name: "CodeIgniter (PHP)",
-    lvl: 65,
+    lvl: 75,
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
   },
   {
@@ -85,7 +86,7 @@ const PROJECTS = [
     tech: ["CodeIgniter", "JS", "MySQL"],
     demo: "https://bombaytribe.com",
     repo: "#",
-    img: "project1.png", // 🔹 Add your image path
+    img: "project1.png",
   },
   {
     title: "Market Price Predictor",
@@ -93,7 +94,7 @@ const PROJECTS = [
     tech: ["Java", "Spring", "React"],
     demo: "#",
     repo: "#",
-    img: "project2.png", // 🔹 Add your image path
+    img: "project2.png",
   },
   {
     title: "Inventory Management",
@@ -101,7 +102,7 @@ const PROJECTS = [
     tech: ["PHP", "JS", "Bootstrap"],
     demo: "https://github.com/NishantBadgujar/cisetup",
     repo: "https://github.com/NishantBadgujar/cisetup",
-    img: "project3.png", // 🔹 Add your image path
+    img: "project3.png",
   },
 ];
 
@@ -136,7 +137,12 @@ export default function Home() {
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center px-6 sm:px-12 py-12 sm:py-16">
             {/* TEXT */}
-            <div className="text-center lg:text-left">
+            <motion.div
+              className="text-center lg:text-left"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <p className="text-sm uppercase tracking-wide text-slate-400">
                 Hi, my name is
               </p>
@@ -168,10 +174,15 @@ export default function Home() {
                   Freelance
                 </span>
               </div>
-            </div>
+            </motion.div>
 
             {/* IMAGE */}
-            <div className="flex justify-center lg:justify-end">
+            <motion.div
+              className="flex justify-center lg:justify-end"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full p-1 bg-gradient-to-tr from-amber-500/20 to-rose-500/10">
                 <div
                   className="absolute inset-0 rounded-full shadow-inner"
@@ -189,7 +200,7 @@ export default function Home() {
                   Java • Frontend • Full-Stack
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -217,9 +228,6 @@ export default function Home() {
               key={s.name}
               className="flex items-center cursor-pointer gap-4 p-4 rounded-lg bg-slate-800/50 border border-slate-800/30 hover:bg-slate-800/60 transition icon-cursor-box"
             >
-              {/* <div className="w-12 h-12 rounded-md bg-gradient-to-tr from-amber-500/20 to-rose-500/10 flex items-center justify-center text-amber-300 font-semibold text-sm"> */}
-              {/* Glass effect on icon */}
-              {/* <div className="w-16 h-16 rounded-xl p-2 backdrop-blur-md shadow-lg border border-slate-800/30 transition duration-300 ease-in-out hover:scale-110 hover:shadow-2xl hover:bg-slate-800/60 hover:-translate-y-2"> */}
               <div className="rounded-xl p-2 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:-rotate-3 bg-gradient-to-br from-gray-800 to-gray-900 icon-cursor-box">
                 {s.icon ? (
                   <img src={s.icon} alt={s.name} className="w-10 h-10 " />
@@ -242,9 +250,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mt-2 bg-slate-900/40 rounded-full h-2 overflow-hidden">
-                  <div
+                  <motion.div
                     className="h-2 rounded-full bg-amber-400"
-                    style={{ width: `${s.lvl}%` }}
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${s.lvl}%` }}
+                    transition={{ duration: 0.9, ease: "easeOut" }}
                   />
                 </div>
               </div>
@@ -268,13 +278,13 @@ export default function Home() {
           {PROJECTS.map((p) => (
             <article
               key={p.title}
-              className="group rounded-2xl overflow-hidden bg-slate-800/40 border border-slate-800/30 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+              className="group rounded-2xl overflow-hidden bg-slate-800/40 border border-slate-800/30 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-3 hover:scale-105 cursor-pointer"
             >
-              {/* Image thumbnail */}
               <div className="relative h-44 w-full overflow-hidden">
                 <img
                   src={p.img}
                   alt={p.title}
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
@@ -317,7 +327,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* View more button */}
         <div className="mt-8 text-center">
           <a
             href="https://github.com/NishantBadgujar"
@@ -331,6 +340,14 @@ export default function Home() {
       </section>
 
       <div className="h-20" />
+
+      {/* Floating CTA */}
+      {/* <a
+        href="/contact"
+        className="fixed right-6 bottom-6 z-50 icon-cursor-box inline-flex items-center gap-2 rounded-full bg-amber-500 px-4 py-3 text-slate-900 shadow-lg hover:scale-105 transition"
+      >
+        ✉ Contact
+      </a> */}
     </main>
   );
 }

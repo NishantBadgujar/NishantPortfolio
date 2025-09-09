@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-
 export default function Header() {
   const [open, setOpen] = useState(false);
 
-    const navItems = [
+  const navItems = [
     { to: "/", label: "Home", type: "nav" },
     { to: "/about", label: "About", type: "nav" },
     { to: "/#projects", label: "Projects", type: "hash" }, // ✅ scroll
-    { to: "/#skills", label: "Skills", type: "hash" },     // ✅ scroll
+    { to: "/#skills", label: "Skills", type: "hash" }, // ✅ scroll
     { to: "/contact", label: "Contact", type: "nav" },
   ];
 
@@ -29,7 +28,7 @@ export default function Header() {
                   Nishant Badgujar
                 </span>
                 <span className="block text-xs text-slate-300">
-                  Java • Frontend • Full‑Stack
+                  Java • Frontend • Full-Stack
                 </span>
               </div>
             </Link>
@@ -40,31 +39,41 @@ export default function Header() {
             <ul className="flex items-center gap-1">
               {navItems.map((item) => (
                 <li key={item.to}>
-                  <NavLink
-                    to={item.to}
-                    className={({ isActive }) =>
-                      `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-amber-400/40 $`
-                    }
-                  >
-                    {({ isActive }) => (
-                      <span
-                        className={
-                          isActive
-                            ? "text-amber-400"
-                            : "text-slate-200 hover:text-amber-300"
-                        }
-                      >
-                        {item.label}
-                      </span>
-                    )}
-                  </NavLink>
+                  {item.type === "hash" ? (
+                    <HashLink
+                      smooth
+                      to={item.to}
+                      className="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:text-amber-300"
+                    >
+                      {item.label}
+                    </HashLink>
+                  ) : (
+                    <NavLink
+                      to={item.to}
+                      className={({ isActive }) =>
+                        `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-amber-400/40`
+                      }
+                    >
+                      {({ isActive }) => (
+                        <span
+                          className={
+                            isActive
+                              ? "text-amber-400"
+                              : "text-slate-200 hover:text-amber-300"
+                          }
+                        >
+                          {item.label}
+                        </span>
+                      )}
+                    </NavLink>
+                  )}
                 </li>
               ))}
             </ul>
 
             <div className="flex items-center gap-3 ml-4">
               <Link
-                to="/Nishant_Badgujar_Resum.pdf"
+                to="/Nishant_Badgujar_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-block px-4 py-2 rounded-md bg-amber-500 text-slate-900 text-sm font-medium shadow hover:opacity-95 icon-cursor-box"
@@ -73,6 +82,7 @@ export default function Header() {
                 Resume
               </Link>
 
+              {/* GitHub */}
               <a
                 href="https://github.com/NishantBadgujar"
                 target="_blank"
@@ -96,6 +106,7 @@ export default function Header() {
                 </svg>
               </a>
 
+              {/* LinkedIn */}
               <a
                 href="https://www.linkedin.com/in/nishant-badgujar-8a3209254/"
                 target="_blank"
@@ -103,7 +114,6 @@ export default function Header() {
                 className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm text-slate-200 hover:text-amber-300"
                 aria-label="LinkedIn"
               >
-                {/* LinkedIn icon */}
                 <svg
                   width="18"
                   height="18"
@@ -177,27 +187,38 @@ export default function Header() {
           id="mobile-menu"
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `block px-3 py-2 rounded-md text-base font-medium ${
-                    isActive
-                      ? "text-amber-400"
-                      : "text-slate-200 hover:text-amber-300"
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-
+            {navItems.map((item) =>
+              item.type === "hash" ? (
+                <HashLink
+                  key={item.to}
+                  smooth
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:text-amber-300"
+                >
+                  {item.label}
+                </HashLink>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `block px-3 py-2 rounded-md text-base font-medium ${
+                      isActive
+                        ? "text-amber-400"
+                        : "text-slate-200 hover:text-amber-300"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              )
+            )}
 
             <div className="mt-2 border-t border-white/5 pt-3 flex items-center gap-3 px-3">
               <Link
-                to="/Nishant_Badgujar_Resum.pdf"
+                to="/Nishant_Badgujar_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-3 py-2 rounded-md bg-amber-500 text-slate-900 text-sm font-medium"
