@@ -89,12 +89,12 @@ const PROJECTS = [
     img: "project1.png",
   },
   {
-    title: "Market Price Predictor",
-    desc: "ML-backed price predictions and trend visualizations to help farmers decide optimal sell times.",
-    tech: ["Java", "Spring", "React"],
-    demo: "#",
-    repo: "#",
-    img: "project2.png",
+  "title": "Unplugged Raisoni",
+  "desc": "Anonymous college confessions platform with chat, moderation, and anonymity safeguards so students and staff can share and discuss privately.",
+  "tech": ["Next.js", "TypeScript", "Prisma", "MongoDB", "Tailwind CSS", "shadcn/ui"],
+  "demo": "https://unpluggedraisoni.vercel.app",
+  "repo": "https://github.com/NishantBadgujar/unplugged_raisoni",
+  "img": "project2.png"
   },
   {
     title: "Inventory Management",
