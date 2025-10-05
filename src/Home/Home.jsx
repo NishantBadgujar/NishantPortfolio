@@ -147,7 +147,9 @@ export default function Home() {
                 Hi, my name is
               </p>
               <h1 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
-                Nishant Badgujar
+                <span className="inline-block bg-gradient-to-r from-sky-400 via-indigo-300 to-amber-300 bg-clip-text text-transparent animate-pulse-slow">
+                  Nishant Badgujar
+                </span>
               </h1>
 
               <p className="mt-4 text-slate-200 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg">
@@ -206,11 +208,13 @@ export default function Home() {
       </section>
 
       {/* ROLE / TAGLINE */}
-      <section className="mt-8 text-center">
-        <h2 className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-rose-600/10 to-amber-600/10 text-slate-100 text-lg sm:text-xl font-medium">
-          Java Developer • Frontend Developer • Backend Developer • Full Stack
-          Developer
-        </h2>
+      <section className="mt-10 text-center">
+        <div className="inline-block px-8 py-4 rounded-full bg-gradient-to-r from-blue-700/20 via-purple-700/20 to-cyan-600/20 backdrop-blur-md border border-white/10 shadow-[0_0_20px_rgba(0,0,0,0.4)] hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-all duration-500">
+          <h2 className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-300 bg-clip-text text-transparent text-xl sm:text-2xl font-semibold tracking-wide">
+            Java Developer • Frontend Developer • Backend Developer • Full Stack
+            Developer
+          </h2>
+        </div>
       </section>
 
       {/* SKILLS */}

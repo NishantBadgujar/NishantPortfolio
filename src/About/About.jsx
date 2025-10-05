@@ -154,7 +154,7 @@ export default function About() {
                     href="https://www.linkedin.com/in/nishant-badgujar-8a3209254/"
                     target="_blank"
                     rel="noreferrer"
-                    className="icon-cursor-box p-2 rounded-md text-slate-300 hover:text-amber-300 transition-colors"
+                    className="icon-cursor-box p-2 rounded-md text-slate-300 hover:text-[#0A66C2] transition-colors"
                     aria-label="LinkedIn"
                   >
                     <svg
@@ -319,7 +319,7 @@ export default function About() {
                   <p className="mt-2 text-sm text-slate-400">— Nishant</p>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center mt-11 gap-3">
                   <Link
                     to="/contact"
                     className="icon-cursor-box inline-flex items-center gap-2 rounded-md bg-amber-500 px-4 py-2 text-slate-900 font-medium shadow hover:opacity-95"

@@ -8,8 +8,8 @@ export default function Header() {
   const navItems = [
     { to: "/", label: "Home", type: "nav" },
     { to: "/about", label: "About", type: "nav" },
-    { to: "/#projects", label: "Projects", type: "hash" }, // ✅ scroll
-    { to: "/#skills", label: "Skills", type: "hash" }, // ✅ scroll
+    { to: "/#projects", label: "Projects", type: "hash" },
+    { to: "/#skills", label: "Skills", type: "hash" },
     { to: "/contact", label: "Contact", type: "nav" },
   ];
 
@@ -17,7 +17,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white/5 backdrop-blur-md shadow">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Brand */}
+          {/* name logo */}
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-500 to-amber-400 flex items-center justify-center text-white font-bold ring-1 ring-white/10">
@@ -34,7 +34,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop nav */}
+          {/* nav */}
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
             <ul className="flex items-center gap-1">
               {navItems.map((item) => (
@@ -111,7 +111,7 @@ export default function Header() {
                 href="https://www.linkedin.com/in/nishant-badgujar-8a3209254/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm text-slate-200 hover:text-amber-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm text-slate-200 hover:text-[#0A66C2]"
                 aria-label="LinkedIn"
               >
                 <svg
@@ -239,7 +239,7 @@ export default function Header() {
                 href="https://www.linkedin.com/in/nishant-badgujar-8a3209254/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm text-slate-200 hover:text-amber-300"
+                className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-sm text-slate-200 hover:text-[#0A66C2]"
               >
                 LinkedIn
               </a>
